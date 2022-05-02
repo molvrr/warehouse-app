@@ -6,7 +6,7 @@ describe 'Usuario visita tela inicial' do
     # Act
     visit('/')
     # Assert
-    expect(page).to have_content('Galpões & Estoque')
+    expect(page).to have_content('Sistema de Galpões e Frete')
   end
   it 'e vê os galpões cadastrados' do
     # Arrange
