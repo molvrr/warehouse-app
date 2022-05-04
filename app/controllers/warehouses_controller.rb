@@ -8,8 +8,9 @@ class WarehousesController < ApplicationController
   end
 
   def create
-    warehouse = Warehouse.new(params.require(:warehouse).permit(:name, :description, :code, :address, :city, :cep, :area))
-    return redirect_to root_path if warehouse.save
+    warehouse = Warehouse.new(params.require(:warehouse).permit(:name, :description, :code,
+                                                                :address, :city, :cep, :area))
+    return redirect_to root_path, notice: 'Galpão cadastrado com sucesso.' if warehouse.save
 
     render :new, status: :unprocessable_entity
   end

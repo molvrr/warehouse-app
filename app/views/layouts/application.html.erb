@@ -12,6 +12,11 @@
       <h1>Sistema de Galpões e Frete</h1>
     </header>
     <main>
+      <% if notice %>
+        <div>
+          <p><%= notice %></p>
+        </div>
+      <% end %>
       <%= yield %>
     </main>
   </body>
