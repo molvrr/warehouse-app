@@ -12,6 +12,7 @@ class WarehousesController < ApplicationController
                                                                 :address, :city, :cep, :area))
     return redirect_to root_path, notice: 'Galpão cadastrado com sucesso.' if warehouse.save
 
+    flash.now[:notice] = 'Galpão não cadastrado.'
     render :new, status: :unprocessable_entity
   end
 end
