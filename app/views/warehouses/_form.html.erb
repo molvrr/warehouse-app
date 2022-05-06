@@ -1,4 +1,4 @@
-<% if warehouse.errors.any? %>
+<% if @warehouse.errors.any? %>
   <p>Verifique os erros abaixo:</p>
   <ul>
     <% @warehouse.errors.full_messages.each do |m| %>
@@ -7,7 +7,7 @@
   </ul>
 <% end %>
 
-<%= form_with model: warehouse do |f| %>
+<%= form_with model: @warehouse do |f| %>
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
