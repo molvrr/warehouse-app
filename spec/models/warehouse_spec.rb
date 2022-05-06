@@ -95,6 +95,18 @@ RSpec.describe Warehouse, type: :model do
                                   description: 'Descrição')
         expect(warehouse.valid?).to be false
       end
+      it 'false quando o CEP tem mais que 5 dígitos antes do hífen' do
+        warehouse = Warehouse.new(name: 'Rio', code: 'RIO', address: 'Endereço',
+                                  cep: '250000-00', city: 'Rio', area: 1000,
+                                  description: 'Descrição')
+        expect(warehouse.valid?).to be false
+      end
+      it 'false quando o CEP tem mais que 3 dígitos depois do hífen' do
+        warehouse = Warehouse.new(name: 'Rio', code: 'RIO', address: 'Endereço',
+                                  cep: '25000-0000', city: 'Rio', area: 1000,
+                                  description: 'Descrição')
+        expect(warehouse.valid?).to be false
+      end
     end
   end
 end
