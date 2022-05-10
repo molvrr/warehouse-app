@@ -14,7 +14,7 @@
       <tbody>
         <% @suppliers.each do |s| %>
           <tr>
-            <td><%= s.trade_name %></td>
+            <td><%= link_to s.trade_name, s %></td>
             <td><%= s.city %> - <%= s.state %></td>
           </tr>
         <% end %>

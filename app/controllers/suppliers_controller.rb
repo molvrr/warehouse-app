@@ -1,4 +1,6 @@
 class SuppliersController < ApplicationController
+  before_action :set_supplier, only: [:show]
+
   def index
     @suppliers = Supplier.all
   end
@@ -15,10 +17,12 @@ class SuppliersController < ApplicationController
     render 'new'
   end
 
+  def show; end
+
   private
 
   def set_supplier
-    @supplier = Suppler.find(params[:id])
+    @supplier = Supplier.find(params[:id])
   end
 
   def supplier_params
