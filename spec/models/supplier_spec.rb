@@ -53,6 +53,13 @@ RSpec.describe Supplier, type: :model do
                                 registration_number: '00.000.000/0001-00')
         expect(supplier).not_to be_valid
       end
+      it 'false quando o campo phone_number está vazio' do
+        supplier = Supplier.new(trade_name: 'Empresa não tão séria', corporate_name: 'Empresa séria',
+                                full_address: 'Av. Séria', city: 'Cidade Séria', state: 'ES',
+                                email: 'empresaseria@dominioserio.com.br', phone_number: '',
+                                registration_number: '00.000.000/0001-00')
+        expect(supplier).not_to be_valid
+      end
     end
     context 'uniqueness' do
       it 'false quando o valor do campo registration_number já está em uso' do
